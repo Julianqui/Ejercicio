@@ -29,7 +29,7 @@ include '../vendor.php';
       <li><a href="../productos/productos.php"><strong>PRODUCTOS</strong></a></li>
       <li><a href="../preguntas-frecuentes/preguntas-frecuentes.php"><strong>PREGUNTAS FRECUENTES</strong></a></li>
       <li><a href="#"><strong>CARRITOS</strong></a></li>
-      <li id="registro"><a href="../registro/registro.php"><strong>CREAR CUENTA</strong></a></li>
+      <li id="registro"><a href="../registro/register.php"><strong>CREAR CUENTA</strong></a></li>
       <li id="registro_2"><a href="../acceso/acesso.php"><strong>ACCEDER</strong></a></li>
       <li id="registro_2"><a href="../perfil/perfil.php"><strong>PERFIL</strong></a></li>
     </ul>

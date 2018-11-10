@@ -5,9 +5,9 @@ include '../vendor.php';
 
 
 
-  $usuariosStmt = $conn->prepare("SELECT id, Usuarios-id FROM carritos");
-	$usuariosStmt->execute();
-	$allUsuarios = $usuariosStmt->fetchAll(PDO::FETCH_OBJ);
+  // $usuariosStmt = $conn->prepare("SELECT id, Usuarios-id FROM carritos");
+	// $usuariosStmt->execute();
+	// $allUsuarios = $usuariosStmt->fetchAll(PDO::FETCH_OBJ);
 
 	if ($_POST) {
 		$insertStmt = $conn->prepare("
@@ -32,24 +32,24 @@ include '../vendor.php';
 		");
 
 		$nombre = trim($_POST['nombre']);
-		$nombreu = trim($_POST['nombreusuario']);
+		$nombreusuario = trim($_POST['nombreusuario']);
 		$correo = trim($_POST['correo']);
-		$contrasena = $_POST['contrasena']];
+		$contrasena = $_POST['contrasena'];
 		$rcontrasena = $_POST['rcontrasena'];
 		$nacionalidad = $_POST['nacionalidad'];
     $imagen = $_POST['imagen'];
 
 		$insertStmt->bindValue(':nombre', $nombre, PDO::PARAM_STR);
-		$insertStmt->bindValue(':nombreusuario', $nombreu, PDO::PARAM_INT);
-		$insertStmt->bindValue(':correo', $correo, PDO::PARAM_INT);
+		$insertStmt->bindValue(':nombreusuario', $nombreusuario, PDO::PARAM_STR);
+		$insertStmt->bindValue(':correo', $correo, PDO::PARAM_STR);
 		$insertStmt->bindValue(':contrasena', $contrasena, PDO::PARAM_STR);
-		$insertStmt->bindValue(':rcontrasena', $rcontrasena, PDO::PARAM_INT);
-		$insertStmt->bindValue(':nacionalidad', $nacionalidad, PDO::PARAM_INT);
-    $insertStmt->bindValue(':imagen', $imagen, PDO::PARAM_INT);
+		$insertStmt->bindValue(':rcontrasena', $rcontrasena, PDO::PARAM_STR);
+		$insertStmt->bindValue(':nacionalidad', $nacionalidad, PDO::PARAM_STR);
+    $insertStmt->bindValue(':imagen', $imagen, PDO::PARAM_STR);
 
 		$insertStmt->execute();
 
-		header('location: ../index.php'); exit;
+		//header('location: registro.php'); exit;
 	}
 ?>
 
@@ -88,7 +88,7 @@ include '../vendor.php';
 
     <section class="form-container">
        <div class="container-fluid">
-         <form action="bienvenido.php" method="post" class="form-signup" id="dataSheet">
+         <form action="../bienvenido/perfil.php" method="post" class="form-signup" id="dataSheet">
            <h2 class="form-signup-heading .text-danger">
              Registrate en Ideon
            </h2>
@@ -140,7 +140,7 @@ include '../vendor.php';
                <span>Deseo recibir información vía email</span> -->
 
                <label>Subí tu foto:</label>
-			         <input type="file" accept="image/jpeg" name="userAvatar">
+			         <input type="file" accept="image/jpeg" name="imagen">
              </label>
            </div>
            <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit">Registrar</button>
